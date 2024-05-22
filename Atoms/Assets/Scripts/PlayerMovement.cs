@@ -24,6 +24,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerRB.velocity = transform.forward * Input.GetAxis("Vertical")*speed;
+        PlayerRB.velocity = Input.GetAxis("Vertical") * transform.forward * speed* (PlayerRB.position.y + 1.45f);
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            PlayerRB.AddForce(new Vector3(0, 3000, 0));
+        }
     }
 }
